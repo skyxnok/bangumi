@@ -1,5 +1,7 @@
 node_modules/
 .env
+images/.staging/
+data/*.json.tmp
 
 # macOS
 .DS_Store

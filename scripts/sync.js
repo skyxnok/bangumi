@@ -15,7 +15,7 @@
  *   DOUBAN_CATEGORY_DELAY_MS: 豆瓣分类/状态间隔 ms（默认 2000）
  */
 import { createHmac } from "node:crypto";
-import { mkdirSync, readdirSync, writeFileSync, rmSync, readFileSync, existsSync } from "node:fs";
+import { mkdirSync, writeFileSync, rmSync, readFileSync, existsSync, renameSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import sharp from "sharp";
@@ -25,6 +25,9 @@ const ROOT = join(__dirname, "..");
 const DATA_DIR = join(ROOT, "data");
 const IMAGES_DIR = join(ROOT, "images");
 const CUSTOM_DIR = join(ROOT, "custom");
+// 封面先下载到暂存区，全部同步成功后才移入正式目录（事务化，失败不污染仓库）
+const IMAGES_STAGING = join(IMAGES_DIR, ".staging");
+const stagedFiles = new Set();
 
 const USERNAME = process.env.BGM_USERNAME || "skyxnok";
 const API_URL = (process.env.BGM_API_URL || "https://api.bgm.tv").replace(/\/+$/, "");
@@ -56,7 +59,8 @@ const DOUBAN_API_KEY = "0dad551ec0f84ed02907ff5c42e8ec70";
 const DOUBAN_SECRET = "bf7dddc7c9cfe6f7";
 const DOUBAN_USER_AGENT =
 	"api-client/1 com.douban.frodo/7.22.0.beta9(231) Android/23 product/Mate40 vendor/HUAWEI model/Mate40 brand/HUAWEI rom/android network/wifi platform/AndroidPad";
-const DOUBAN_ID = (process.env.DOUBAN_ID || "296581086").trim();
+// 用 ?? 而不是 ||：DOUBAN_ID 留空时表示跳过豆瓣同步，不要兜底回默认值
+const DOUBAN_ID = (process.env.DOUBAN_ID ?? "296581086").trim();
 const DOUBAN_PAGE_DELAY = Number(process.env.DOUBAN_PAGE_DELAY_MS || 1500);
 const DOUBAN_CATEGORY_DELAY = Number(process.env.DOUBAN_CATEGORY_DELAY_MS || 2000);
 const DOUBAN_IMAGE_DELAY = Number(process.env.DOUBAN_IMAGE_DELAY_MS || 300);
@@ -278,7 +282,8 @@ async function downloadCover(catDir, id, url, ua = USER_AGENT, referers = []) {
 	if (!url) return "";
 	const safeId = String(id).replace(/[^\w.-]+/g, "-");
 	const relPath = `images/${catDir}/${safeId}.avif`;
-	const absPath = join(ROOT, relPath);
+	// 先写入暂存区，最终路径仍是 images/{catDir}/{id}.avif
+	const absPath = join(IMAGES_STAGING, catDir, `${safeId}.avif`);
 
 	// 豆瓣图床（doubanio）可能拒绝无 Referer / 非浏览器 UA 的请求，甚至直接断连
 	// 依次尝试：无 Referer -> 各候选 Referer（sharing_url、条目页、豆瓣首页），去重
@@ -302,6 +307,7 @@ async function downloadCover(catDir, id, url, ua = USER_AGENT, referers = []) {
 				.toBuffer();
 			mkdirSync(dirname(absPath), { recursive: true });
 			writeFileSync(absPath, avifBuf);
+			stagedFiles.add(relPath);
 			return relPath;
 		} catch (e) {
 			console.warn(`  封面下载失败 ${id}（referer=${referer || "无"}）: ${e.message}`);
@@ -385,25 +391,52 @@ async function syncCategory(cat) {
 	if (hasDouban) {
 		out = sortByUpdatedAt(out);
 	}
-	writeFileSync(join(DATA_DIR, `${cat.key}.json`), JSON.stringify(out, null, 2));
-	console.log(`[${cat.key}] 已写入 data/${cat.key}.json（共 ${out.length} 条）`);
+	console.log(`[${cat.key}] 同步完成（共 ${out.length} 条，待全部成功后再统一写入）`);
+	return out;
 }
 
-// 清空旧的 images 分类目录，避免残留
-for (const cat of CATEGORIES) {
-	const dir = join(IMAGES_DIR, cat.key);
-	try {
-		rmSync(dir, { recursive: true, force: true });
-	} catch {}
-}
-
-for (const cat of CATEGORIES) {
-	try {
-		await syncCategory(cat);
-	} catch (e) {
-		console.error(`[${cat.key}] 同步失败: ${e.message}`);
+/** 全部同步成功：清空旧封面，把暂存封面移入正式目录 */
+function finalizeImages() {
+	for (const cat of CATEGORIES) {
+		rmSync(join(IMAGES_DIR, cat.key), { recursive: true, force: true });
 	}
+	rmSync(join(IMAGES_DIR, "custom"), { recursive: true, force: true });
+	for (const rel of stagedFiles) {
+		const from = join(IMAGES_STAGING, rel.replace(/^images\//, ""));
+		const to = join(ROOT, rel);
+		mkdirSync(dirname(to), { recursive: true });
+		renameSync(from, to);
+	}
+	rmSync(IMAGES_STAGING, { recursive: true, force: true });
 }
 
-console.log("\n✅ 同步完成");
+/** 原子写入 data JSON：先写临时文件再重命名，避免写一半损坏 */
+function writeDataFile(key, data) {
+	const target = join(DATA_DIR, `${key}.json`);
+	const tmp = join(DATA_DIR, `${key}.json.tmp`);
+	writeFileSync(tmp, JSON.stringify(data, null, 2));
+	renameSync(tmp, target);
+}
+
+// 事务化：先全量同步到内存，任何一个分类失败就回滚（不写数据、不动旧封面）
+const results = {};
+try {
+	for (const cat of CATEGORIES) {
+		results[cat.key] = await syncCategory(cat);
+	}
+} catch (e) {
+	console.error(`\n❌ 同步失败：${e.message}`);
+	console.error("已回滚：仓库数据与封面保持原样，不会提交任何变更。");
+	rmSync(IMAGES_STAGING, { recursive: true, force: true });
+	process.exit(1);
+}
+
+// 全部成功：先落封面，再统一写数据
+finalizeImages();
+for (const cat of CATEGORIES) {
+	writeDataFile(cat.key, results[cat.key]);
+	console.log(`[${cat.key}] 已写入 data/${cat.key}.json`);
+}
+
+console.log("\n✅ 全部分类同步成功，数据与封面已更新");
 console.log("下一步：git add -A && git commit && git push");

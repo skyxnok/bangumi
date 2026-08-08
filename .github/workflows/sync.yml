@@ -42,12 +42,13 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          if [ -z "$(git status --porcelain)" ]; then
+          # 只提交同步产物（数据 + 封面），其他文件不归 Actions 管
+          git add data images
+          if git diff --cached --quiet; then
             echo "无数据变化，跳过提交"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
           git commit -m "chore: sync bangumi data [skip ci]"
           git push
