@@ -1,6 +1,6 @@
 /**
  * Bangumi 数据 API - Cloudflare Worker
- * 从 GitHub 仓库读取 JSON 数据并提供给博客的番组计划页面
+ * 从 GitHub 仓库读取 JSON 数据，并提供图片代理，全部走你自己的域名（data.201562.xyz）
  *
  * 部署：wrangler deploy（或粘贴到 Cloudflare Dashboard）
  * 绑定域名后，博客 siteConfig.bangumi.apiUrl 指向该域名即可
@@ -10,9 +10,10 @@
  *   GITHUB_REPO: 仓库名（必填）
  *   GITHUB_BRANCH: 分支名，默认 main
  *   CACHE_TTL: 数据缓存秒数，默认 300（5分钟）
+ *   IMAGE_CACHE_TTL: 图片缓存秒数，默认 86400（1天）
  *
  * 缓存说明：Cloudflare Cache API 的 cache.match() 不一定按 max-age 过期，
- * 所以这里用 x-cached-at 时间戳做显式 TTL，保证同步后数据能及时更新。
+ * 所以这里用 x-cached-at 时间戳做显式 TTL。
  * 请求带 ?refresh=1 可强制绕过缓存回源。
  */
 
@@ -32,10 +33,14 @@ const CORS = {
 	"Access-Control-Max-Age": "86400",
 };
 
-// 图片根路径（jsDelivr CDN，比 raw.githubusercontent.com 更稳）
-function imageCdnUrl(env) {
-	return `https://cdn.jsdelivr.net/gh/${env.GITHUB_USER}/${env.GITHUB_REPO}@${env.GITHUB_BRANCH || "main"}`;
-}
+const MIME = {
+	avif: "image/avif",
+	webp: "image/webp",
+	png: "image/png",
+	jpg: "image/jpeg",
+	jpeg: "image/jpeg",
+	gif: "image/gif",
+};
 
 function jsonResponse(data, status = 200) {
 	return new Response(JSON.stringify(data), {
@@ -44,9 +49,33 @@ function jsonResponse(data, status = 200) {
 	});
 }
 
+/** 显式 TTL 缓存读取：未命中/过期返回 null */
+async function readCache(cache, cacheKey, ttlSeconds) {
+	const cached = await cache.match(cacheKey);
+	if (!cached) return null;
+	const cachedAt = Number(cached.headers.get("x-cached-at") || 0);
+	if (Date.now() - cachedAt >= ttlSeconds * 1000) return null;
+	return cached;
+}
+
+/** 从 GitHub raw 拉取文件；失败返回 null */
+async function fetchRaw(user, repo, branch, relPath, accept) {
+	const url = `https://raw.githubusercontent.com/${user}/${repo}/${branch}/${relPath}`;
+	try {
+		const resp = await fetch(url, {
+			headers: { Accept: accept || "*/*", "User-Agent": "BangumiDataAPI" },
+		});
+		if (!resp.ok) return null;
+		return resp;
+	} catch {
+		return null;
+	}
+}
+
 export default {
 	async fetch(request, env, ctx) {
 		const url = new URL(request.url);
+		const cache = caches.default;
 
 		// OPTIONS 预检
 		if (request.method === "OPTIONS") {
@@ -56,7 +85,45 @@ export default {
 			return jsonResponse({ error: "Method Not Allowed" }, 405);
 		}
 
-		// 路由：GET /v0/users/{username}/collections
+		if (!env.GITHUB_USER || !env.GITHUB_REPO) {
+			return jsonResponse({ error: "Worker 未配置 GITHUB_USER / GITHUB_REPO" }, 500);
+		}
+		const branch = env.GITHUB_BRANCH || "main";
+		const forceRefresh = url.searchParams.get("refresh") === "1";
+
+		// ---------- 路由：GET /images/{path}（封面图片代理，同源返回） ----------
+		const imgMatch = url.pathname.match(/^\/images\/(.+)$/);
+		if (imgMatch) {
+			const rel = imgMatch[1];
+			// 只允许普通文件名路径，防目录穿越
+			if (!/^[A-Za-z0-9_./-]+$/.test(rel) || rel.includes("..") || rel.includes("//")) {
+				return jsonResponse({ error: "Invalid image path" }, 400);
+			}
+			const imgTtl = Number(env.IMAGE_CACHE_TTL || 86400);
+			const cacheKey = new Request(`${url.origin}/images/${rel}`);
+
+			if (!forceRefresh) {
+				const cached = await readCache(cache, cacheKey, imgTtl);
+				if (cached) return cached;
+			}
+
+			const resp = await fetchRaw(env.GITHUB_USER, env.GITHUB_REPO, branch, `images/${rel}`);
+			if (!resp) return jsonResponse({ error: `图片不存在: images/${rel}` }, 404);
+			const buf = await resp.arrayBuffer();
+			const ext = rel.split(".").pop().toLowerCase();
+			const imgResp = new Response(buf, {
+				headers: {
+					"Content-Type": MIME[ext] || "application/octet-stream",
+					"Cache-Control": `public, max-age=${imgTtl}`,
+					"x-cached-at": String(Date.now()),
+					...CORS,
+				},
+			});
+			ctx.waitUntil(cache.put(cacheKey, imgResp.clone()));
+			return imgResp;
+		}
+
+		// ---------- 路由：GET /v0/users/{username}/collections ----------
 		const m = url.pathname.match(/^\/v0\/users\/([^/]+)\/collections$/);
 		if (!m) {
 			return jsonResponse({ error: "Not Found", path: url.pathname }, 404);
@@ -64,10 +131,7 @@ export default {
 
 		const username = m[1];
 		const subjectType = Number(url.searchParams.get("subject_type") || 2);
-		const limit = Math.min(
-			Number(url.searchParams.get("limit") || 50),
-			100,
-		);
+		const limit = Math.min(Number(url.searchParams.get("limit") || 50), 100);
 		const offset = Number(url.searchParams.get("offset") || 0);
 
 		const fileKey = TYPE_MAP[subjectType];
@@ -75,48 +139,20 @@ export default {
 			return jsonResponse({ error: `Unsupported subject_type: ${subjectType}` }, 400);
 		}
 
-		if (!env.GITHUB_USER || !env.GITHUB_REPO) {
-			return jsonResponse({ error: "Worker 未配置 GITHUB_USER / GITHUB_REPO" }, 500);
-		}
-
-		const branch = env.GITHUB_BRANCH || "main";
 		const cacheTtl = Number(env.CACHE_TTL || 300);
-		const forceRefresh = url.searchParams.get("refresh") === "1";
-
-		// ---------- 读取数据（带缓存） ----------
-		// 数据文件用 raw.githubusercontent.com 保证始终最新；
-		// jsDelivr 对 @main 分支的缓存刷新可能延迟很久，不适合数据文件。
-		const rawUrl = `https://raw.githubusercontent.com/${env.GITHUB_USER}/${env.GITHUB_REPO}/${branch}/data/${fileKey}.json`;
-		const cdnUrl = `https://cdn.jsdelivr.net/gh/${env.GITHUB_USER}/${env.GITHUB_REPO}@${branch}/data/${fileKey}.json`;
-		const cacheKey = new Request(rawUrl);
-		const cache = caches.default;
+		const dataUrl = `https://raw.githubusercontent.com/${env.GITHUB_USER}/${env.GITHUB_REPO}/${branch}/data/${fileKey}.json`;
+		const cacheKey = new Request(dataUrl);
 
 		let items;
 		if (!forceRefresh) {
-			const cached = await cache.match(cacheKey);
-			if (cached) {
-				const cachedAt = Number(cached.headers.get("x-cached-at") || 0);
-				if (Date.now() - cachedAt < cacheTtl * 1000) {
-					items = await cached.json();
-				}
-			}
+			const cached = await readCache(cache, cacheKey, cacheTtl);
+			if (cached) items = await cached.json();
 		}
 		if (!items) {
-			let resp = await fetch(rawUrl, {
-				headers: { Accept: "application/json", "User-Agent": "BangumiDataAPI" },
-			});
-			if (!resp.ok) {
-				// raw 失败时回退到 jsDelivr CDN
-				resp = await fetch(cdnUrl, {
-					headers: { Accept: "application/json", "User-Agent": "BangumiDataAPI" },
-				});
-				if (!resp.ok) {
-					return jsonResponse({ error: `数据文件获取失败: ${fileKey}.json` }, 502);
-				}
-			}
+			const resp = await fetchRaw(env.GITHUB_USER, env.GITHUB_REPO, branch, `data/${fileKey}.json`, "application/json");
+			if (!resp) return jsonResponse({ error: `数据文件获取失败: ${fileKey}.json` }, 502);
 			items = await resp.json();
 
-			// 缓存成功响应（clone 后放入，原 body 仍可读）
 			const cacheResp = new Response(JSON.stringify(items), {
 				headers: {
 					"Content-Type": "application/json",
@@ -131,12 +167,12 @@ export default {
 			return jsonResponse({ error: "数据文件格式错误：应为数组" }, 500);
 		}
 
-		// ---------- 图片地址补全（相对路径 -> jsDelivr CDN） ----------
-		const cdnBase = imageCdnUrl(env);
+		// ---------- 图片地址补全（相对路径 -> 当前域名 /images/...） ----------
+		const origin = url.origin;
 		const fillImageUrl = (p) => {
 			if (!p) return "";
-			if (/^https?:\/\//.test(p)) return p;
-			return `${cdnBase}/${p.replace(/^\/+/, "")}`;
+			if (/^https?:\/\//.test(p)) return p; // 远程原图（封面下载失败的兜底）
+			return `${origin}/${p.replace(/^\/+/, "")}`;
 		};
 
 		const pageItems = items.slice(offset, offset + limit).map((item) => {

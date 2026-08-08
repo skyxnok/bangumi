@@ -97,6 +97,7 @@ GET /v0/users/{username}/collections?subject_type=2&limit=50&offset=0
 
 - `subject_type`: 1=书籍, 2=动画, 3=音乐, 4=游戏, 6=三次元
 - 返回格式与 Bangumi 官方 `UserSubjectCollection` 兼容（字段参考 `docs/bangumi-api.md`）
-- 数据文件从 `raw.githubusercontent.com` 读取（始终与仓库同步），封面图片走 jsDelivr CDN
-- 图片相对路径由 Worker 自动补全为 jsDelivr CDN 地址
+- 数据与图片都从 `raw.githubusercontent.com` 读取（始终与仓库同步），**不依赖 jsDelivr**
+- 图片相对路径由 Worker 自动补全为**同源地址** `/images/...`（如 `https://data.201562.xyz/images/anime/123.avif`），图片请求同样带缓存
 - 数据缓存 5 分钟（`CACHE_TTL` 可调），带 `?refresh=1` 可强制绕过缓存回源
+- 图片缓存 1 天（`IMAGE_CACHE_TTL` 可调），同样支持 `?refresh=1`
