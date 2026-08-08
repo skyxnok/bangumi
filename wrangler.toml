@@ -14,4 +14,4 @@ routes = [
 GITHUB_USER = "skyxnok"
 GITHUB_REPO = "bangumi"
 GITHUB_BRANCH = "main"
-CACHE_TTL = "3600"
+CACHE_TTL = "300"

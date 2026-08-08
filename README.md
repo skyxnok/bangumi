@@ -67,6 +67,9 @@ git commit -m "sync bangumi data"
 git push
 ```
 
+> **同步时机**：每天自动同步 8 次（每 3 小时），push 到 main 也会触发。
+> 删除收藏后想立刻更新，到 GitHub Actions → **Sync Bangumi Data** → **Run workflow** 手动触发一次即可。
+
 ### 3. 部署 Worker
 
 ```bash
@@ -94,5 +97,6 @@ GET /v0/users/{username}/collections?subject_type=2&limit=50&offset=0
 
 - `subject_type`: 1=书籍, 2=动画, 3=音乐, 4=游戏, 6=三次元
 - 返回格式与 Bangumi 官方 `UserSubjectCollection` 兼容（字段参考 `docs/bangumi-api.md`）
+- 数据文件从 `raw.githubusercontent.com` 读取（始终与仓库同步），封面图片走 jsDelivr CDN
 - 图片相对路径由 Worker 自动补全为 jsDelivr CDN 地址
-- 数据缓存 1 小时（`CACHE_TTL` 可调）
+- 数据缓存 5 分钟（`CACHE_TTL` 可调），带 `?refresh=1` 可强制绕过缓存回源

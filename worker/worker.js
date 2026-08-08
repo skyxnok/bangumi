@@ -9,7 +9,11 @@
  *   GITHUB_USER: GitHub 用户名（必填）
  *   GITHUB_REPO: 仓库名（必填）
  *   GITHUB_BRANCH: 分支名，默认 main
- *   CACHE_TTL: 缓存秒数，默认 3600（1小时）
+ *   CACHE_TTL: 数据缓存秒数，默认 300（5分钟）
+ *
+ * 缓存说明：Cloudflare Cache API 的 cache.match() 不一定按 max-age 过期，
+ * 所以这里用 x-cached-at 时间戳做显式 TTL，保证同步后数据能及时更新。
+ * 请求带 ?refresh=1 可强制绕过缓存回源。
  */
 
 // subject_type -> 文件名
@@ -76,39 +80,47 @@ export default {
 		}
 
 		const branch = env.GITHUB_BRANCH || "main";
-		const cacheTtl = Number(env.CACHE_TTL || 3600);
+		const cacheTtl = Number(env.CACHE_TTL || 300);
+		const forceRefresh = url.searchParams.get("refresh") === "1";
 
 		// ---------- 读取数据（带缓存） ----------
-		const dataUrl = `https://cdn.jsdelivr.net/gh/${env.GITHUB_USER}/${env.GITHUB_REPO}@${branch}/data/${fileKey}.json`;
-		const cacheKey = new Request(dataUrl);
+		// 数据文件用 raw.githubusercontent.com 保证始终最新；
+		// jsDelivr 对 @main 分支的缓存刷新可能延迟很久，不适合数据文件。
+		const rawUrl = `https://raw.githubusercontent.com/${env.GITHUB_USER}/${env.GITHUB_REPO}/${branch}/data/${fileKey}.json`;
+		const cdnUrl = `https://cdn.jsdelivr.net/gh/${env.GITHUB_USER}/${env.GITHUB_REPO}@${branch}/data/${fileKey}.json`;
+		const cacheKey = new Request(rawUrl);
 		const cache = caches.default;
 
 		let items;
-		let cached = await cache.match(cacheKey);
-		if (cached) {
-			items = await cached.json();
-		} else {
-			const resp = await fetch(dataUrl, {
+		if (!forceRefresh) {
+			const cached = await cache.match(cacheKey);
+			if (cached) {
+				const cachedAt = Number(cached.headers.get("x-cached-at") || 0);
+				if (Date.now() - cachedAt < cacheTtl * 1000) {
+					items = await cached.json();
+				}
+			}
+		}
+		if (!items) {
+			let resp = await fetch(rawUrl, {
 				headers: { Accept: "application/json", "User-Agent": "BangumiDataAPI" },
 			});
 			if (!resp.ok) {
-				// jsDelivr 失败时回退到 raw.githubusercontent.com
-				const rawUrl = `https://raw.githubusercontent.com/${env.GITHUB_USER}/${env.GITHUB_REPO}/${branch}/data/${fileKey}.json`;
-				const rawResp = await fetch(rawUrl, {
+				// raw 失败时回退到 jsDelivr CDN
+				resp = await fetch(cdnUrl, {
 					headers: { Accept: "application/json", "User-Agent": "BangumiDataAPI" },
 				});
-				if (!rawResp.ok) {
+				if (!resp.ok) {
 					return jsonResponse({ error: `数据文件获取失败: ${fileKey}.json` }, 502);
 				}
-				items = await rawResp.json();
-			} else {
-				items = await resp.json();
 			}
+			items = await resp.json();
 
 			// 缓存成功响应（clone 后放入，原 body 仍可读）
 			const cacheResp = new Response(JSON.stringify(items), {
 				headers: {
 					"Content-Type": "application/json",
+					"x-cached-at": String(Date.now()),
 					"Cache-Control": `public, max-age=${cacheTtl}`,
 				},
 			});

@@ -1,13 +1,15 @@
 name: Sync Bangumi Data
 
 on:
-  # 每天定时同步（北京时间每天 10:00 = UTC 02:00）
+  # 每 3 小时定时同步（UTC 0/3/6/9/12/15/18/21 点 = 北京时间 8/11/14/17/20/23/2/5 点）
   schedule:
-    - cron: "0 2 * * *"
+    - cron: "0 */3 * * *"
   # 每次推送到 main 时也同步（比如改动了 custom/ 手动条目）
   push:
     branches:
       - main
+  # 手动触发：Actions 页面 -> Sync Bangumi Data -> Run workflow，删除收藏后可立即同步
+  workflow_dispatch:
 
 permissions:
   contents: write
