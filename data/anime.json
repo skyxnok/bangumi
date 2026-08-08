@@ -162,7 +162,7 @@
       },
       "volumes": 0,
       "eps": 8,
-      "collection_total": 4804,
+      "collection_total": 4806,
       "score": 7.7,
       "rank": 816,
       "tags": [
@@ -302,17 +302,17 @@
       },
       "volumes": 0,
       "eps": 25,
-      "collection_total": 48493,
+      "collection_total": 48494,
       "score": 7.5,
       "rank": 1025,
       "tags": [
         {
           "name": "轻小说改",
-          "count": 4777
+          "count": 4778
         },
         {
           "name": "异世界",
-          "count": 3755
+          "count": 3756
         },
         {
           "name": "2016年4月",
@@ -320,7 +320,7 @@
         },
         {
           "name": "穿越",
-          "count": 3062
+          "count": 3063
         },
         {
           "name": "WHITEFOX",
@@ -2416,7 +2416,7 @@
       },
       "volumes": 0,
       "eps": 26,
-      "collection_total": 2438,
+      "collection_total": 2439,
       "score": 5,
       "rank": 9593,
       "tags": [
@@ -2844,7 +2844,7 @@
       },
       "volumes": 0,
       "eps": 11,
-      "collection_total": 53193,
+      "collection_total": 53194,
       "score": 7.9,
       "rank": 271,
       "tags": [
@@ -2964,13 +2964,13 @@
       },
       "volumes": 0,
       "eps": 12,
-      "collection_total": 15305,
+      "collection_total": 15307,
       "score": 7,
       "rank": 2499,
       "tags": [
         {
           "name": "恋爱",
-          "count": 1128
+          "count": 1129
         },
         {
           "name": "2026年7月",
@@ -3006,7 +3006,7 @@
         },
         {
           "name": "职场",
-          "count": 326
+          "count": 327
         }
       ]
     }
