@@ -1,6 +1,7 @@
 name = "bangumi-data-api"
 main = "worker/worker.js"
 compatibility_date = "2024-09-01"
+workers_dev = true
 
 # 自定义域名（博客 apiUrl 指向它）
 routes = [
