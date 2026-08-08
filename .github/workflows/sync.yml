@@ -23,20 +23,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: pnpm
+          node-version: 22
+          cache: npm
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: npm ci
 
       - name: Sync Bangumi data
-        run: pnpm sync
+        run: npm run sync
         env:
           BGM_USERNAME: ${{ secrets.BGM_USERNAME || 'skyxnok' }}
           # GitHub Actions 运行在国外服务器，直连官方 API 更快更稳

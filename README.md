@@ -21,8 +21,8 @@
 ### 1. 同步数据（本地执行）
 
 ```bash
-pnpm install
-pnpm sync
+npm install
+npm run sync
 ```
 
 会从 Bangumi API 拉取收藏，下载封面转 AVIF，生成 `data/*.json`。
@@ -33,7 +33,7 @@ pnpm sync
 BGM_USERNAME=skyxnok \
 BGM_API_URL=https://shyxnok.dpdns.org \
 DOUBAN_ID=296581086 \
-pnpm sync
+npm run sync
 ```
 
 豆瓣相关环境变量：
@@ -60,7 +60,7 @@ git push
 ### 3. 部署 Worker
 
 ```bash
-pnpm deploy
+npm run deploy
 ```
 
 或直接粘贴 `worker/worker.js` 到 Cloudflare Dashboard。配置 `GITHUB_USER` / `GITHUB_REPO` 变量后，绑定自定义域名即可。
