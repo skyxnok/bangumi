@@ -41,6 +41,11 @@ npm run sync
 - `DOUBAN_ID`：豆瓣用户 ID（主页 `douban.com/people/<ID>/` 的 `<ID>`），留空则跳过豆瓣同步
 - `DOUBAN_PAGE_DELAY_MS`：豆瓣翻页间隔，默认 `1500`
 - `DOUBAN_CATEGORY_DELAY_MS`：豆瓣分类/状态间隔，默认 `2000`
+- `DOUBAN_IMAGE_DELAY_MS`：豆瓣封面下载间隔，默认 `300`
+
+封面下载说明：豆瓣图床（doubanio）可能拒绝无 Referer 或海外 IP 的请求，脚本会依次尝试
+无 Referer、条目分享链接、条目页、豆瓣首页，并对网络断连/超时自动重试（最长 20s 超时，
+指数退避最多 4 次）。全部失败时保留豆瓣原链接，下次同步会再次尝试。
 
 豆瓣条目说明：
 

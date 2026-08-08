@@ -59,6 +59,7 @@ const DOUBAN_USER_AGENT =
 const DOUBAN_ID = (process.env.DOUBAN_ID || "296581086").trim();
 const DOUBAN_PAGE_DELAY = Number(process.env.DOUBAN_PAGE_DELAY_MS || 1500);
 const DOUBAN_CATEGORY_DELAY = Number(process.env.DOUBAN_CATEGORY_DELAY_MS || 2000);
+const DOUBAN_IMAGE_DELAY = Number(process.env.DOUBAN_IMAGE_DELAY_MS || 300);
 // 豆瓣条目 ID 命名空间，避免与 Bangumi ID 冲突（Svelte key / 跳转链接用）
 const DOUBAN_NS = 10_000_000_000;
 // 豆瓣收藏状态 -> 收藏类型（与 Bangumi 一致：1想看 2看过 3在看）
@@ -157,7 +158,7 @@ async function toBangumiItem(interest, cat) {
 				"douban-" + doubanId,
 				cover,
 				DOUBAN_USER_AGENT,
-				subject.sharing_url || "",
+				[subject.sharing_url, subject.url].filter(Boolean),
 			)
 		: "";
 	const pubdate = Array.isArray(subject.pubdate) ? subject.pubdate[0] : (subject.pubdate || "");
@@ -249,21 +250,51 @@ async function fetchAll(username, subjectType) {
 }
 
 /** 下载图片并转为 AVIF，返回相对路径 images/{cat}/{id}.avif；失败返回原 URL */
-async function downloadCover(catDir, id, url, ua = USER_AGENT, referer = "") {
+async function fetchWithRetry(url, { headers = {}, timeoutMs = 20000, retries = 4 } = {}) {
+	let lastErr;
+	for (let attempt = 0; attempt < retries; attempt++) {
+		const ctrl = new AbortController();
+		const timer = setTimeout(() => ctrl.abort(), timeoutMs);
+		try {
+			const resp = await fetch(url, { headers, signal: ctrl.signal });
+			if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+			return resp;
+		} catch (e) {
+			lastErr = e;
+			if (attempt < retries - 1) {
+				const wait = 1500 * 2 ** attempt;
+				console.warn(`  封面下载重试 ${attempt + 1}/${retries}（${e.message}），${wait}ms 后重试`);
+				await new Promise((r) => setTimeout(r, wait));
+			}
+		} finally {
+			clearTimeout(timer);
+		}
+	}
+	throw lastErr || new Error("fetch failed");
+}
+
+/** 下载图片并转为 AVIF，返回相对路径 images/{cat}/{id}.avif；失败返回原 URL */
+async function downloadCover(catDir, id, url, ua = USER_AGENT, referers = []) {
 	if (!url) return "";
 	const safeId = String(id).replace(/[^\w.-]+/g, "-");
 	const relPath = `images/${catDir}/${safeId}.avif`;
 	const absPath = join(ROOT, relPath);
 
-	// 豆瓣图床（doubanio）会拦截无 Referer 的请求，先正常请求，失败再带 Referer 重试
-	const headerSets = [
-		{ "User-Agent": ua },
-		{ "User-Agent": ua, Referer: referer || "https://www.douban.com/" },
-	];
-	for (const headers of headerSets) {
+	// 豆瓣图床（doubanio）可能拒绝无 Referer / 非浏览器 UA 的请求，甚至直接断连
+	// 依次尝试：无 Referer -> 各候选 Referer（sharing_url、条目页、豆瓣首页），去重
+	const refererList = [""];
+	for (const r of referers) {
+		if (r && !refererList.includes(r)) refererList.push(r);
+	}
+	if (!refererList.includes("https://www.douban.com/")) {
+		refererList.push("https://www.douban.com/");
+	}
+
+	for (const referer of refererList) {
+		const headers = { "User-Agent": ua };
+		if (referer) headers.Referer = referer;
 		try {
-			const resp = await fetch(url, { headers });
-			if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+			const resp = await fetchWithRetry(url, { headers });
 			const buf = Buffer.from(await resp.arrayBuffer());
 			const avifBuf = await sharp(buf)
 				.resize({ width: AVIF_MAX_WIDTH, withoutEnlargement: true })
@@ -273,11 +304,10 @@ async function downloadCover(catDir, id, url, ua = USER_AGENT, referer = "") {
 			writeFileSync(absPath, avifBuf);
 			return relPath;
 		} catch (e) {
-			if (headers === headerSets[headerSets.length - 1]) {
-				console.warn(`  封面下载失败 ${id}: ${e.message}，保留原链接`);
-			}
+			console.warn(`  封面下载失败 ${id}（referer=${referer || "无"}）: ${e.message}`);
 		}
 	}
+	console.warn(`  封面下载最终失败 ${id}，保留原链接: ${url}`);
 	return url;
 }
 
@@ -331,7 +361,7 @@ async function syncCategory(cat) {
 			console.log(`[${cat.key}] 豆瓣 ${cat.doubanType}/${status}: ${interests.length} 条`);
 			for (const it of interests) {
 				out.push(await toBangumiItem(it, cat));
-				await new Promise((r) => setTimeout(r, 20));
+				await new Promise((r) => setTimeout(r, DOUBAN_IMAGE_DELAY));
 			}
 			if (status !== "mark") {
 				await new Promise((r) => setTimeout(r, DOUBAN_CATEGORY_DELAY));
