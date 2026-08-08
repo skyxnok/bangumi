@@ -132,7 +132,7 @@
       "url": "https://book.douban.com/subject/1322455/",
       "volumes": 0,
       "eps": 0,
-      "collection_total": 55576,
+      "collection_total": 55577,
       "score": 8.6,
       "rank": 0,
       "tags": []
@@ -301,41 +301,8 @@
       "url": "https://book.douban.com/subject/20441957/",
       "volumes": 0,
       "eps": 0,
-      "collection_total": 91011,
+      "collection_total": 91012,
       "score": 8.5,
-      "rank": 0,
-      "tags": []
-    }
-  },
-  {
-    "source": "douban",
-    "subject_id": 10004760224,
-    "subject_type": 1,
-    "rate": 10,
-    "type": 2,
-    "comment": "",
-    "tags": [
-      "小说"
-    ],
-    "ep_status": 0,
-    "vol_status": 0,
-    "updated_at": "2026-08-08T23:57:46+08:00",
-    "private": false,
-    "subject": {
-      "id": 10004760224,
-      "type": 1,
-      "name": "许三观卖血记",
-      "name_cn": "许三观卖血记",
-      "short_summary": "《许三观卖血记》是余华1995年创作的一部长篇小说。《许三观卖血记》以博大的温情描绘了磨难中的人生，以激烈的故事形式表达了人在面对厄运时求生的欲望。小说讲述了许三观靠着卖血渡过了人生的一个个难关，战胜了命运强加给他的惊涛骇浪，而当他老了，知道自己的血再也没有人要时，精神却崩溃了。",
-      "date": "2012-9",
-      "images": {
-        "medium": "images/book/douban-4760224.avif"
-      },
-      "url": "https://book.douban.com/subject/4760224/",
-      "volumes": 0,
-      "eps": 0,
-      "collection_total": 204698,
-      "score": 9.2,
       "rank": 0,
       "tags": []
     }
@@ -403,7 +370,7 @@
       "url": "https://book.douban.com/subject/4913064/",
       "volumes": 0,
       "eps": 0,
-      "collection_total": 921847,
+      "collection_total": 921852,
       "score": 9.4,
       "rank": 0,
       "tags": []
@@ -437,7 +404,7 @@
       "url": "https://book.douban.com/subject/27200257/",
       "volumes": 0,
       "eps": 0,
-      "collection_total": 45364,
+      "collection_total": 45366,
       "score": 8.5,
       "rank": 0,
       "tags": []
@@ -516,38 +483,6 @@
           "count": 19
         }
       ]
-    }
-  },
-  {
-    "custom": true,
-    "subject_id": 900001,
-    "subject_type": 2,
-    "rate": 9,
-    "type": 2,
-    "comment": "手动添加的测试条目",
-    "tags": [
-      "自定义"
-    ],
-    "ep_status": 0,
-    "vol_status": 0,
-    "updated_at": "2026-08-08T00:00:00+08:00",
-    "private": false,
-    "subject": {
-      "id": 900001,
-      "type": 2,
-      "name": "Test Custom Anime",
-      "name_cn": "手动测试条目",
-      "short_summary": "这是一条手动添加的测试条目",
-      "date": "2020-01-01",
-      "images": {
-        "medium": "images/custom/book/900001.avif"
-      },
-      "volumes": 0,
-      "eps": 12,
-      "collection_total": 0,
-      "score": 0,
-      "rank": 0,
-      "tags": []
     }
   },
   {

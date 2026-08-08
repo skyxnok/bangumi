@@ -28,7 +28,7 @@
       "url": "https://movie.douban.com/subject/36850814/",
       "volumes": 0,
       "eps": 0,
-      "collection_total": 87058,
+      "collection_total": 87158,
       "score": 6.7,
       "rank": 0,
       "tags": []
@@ -63,7 +63,7 @@
       "url": "https://movie.douban.com/subject/36246195/",
       "volumes": 0,
       "eps": 0,
-      "collection_total": 287485,
+      "collection_total": 288236,
       "score": 7.8,
       "rank": 0,
       "tags": []
@@ -94,80 +94,10 @@
       "url": "https://movie.douban.com/subject/36474027/",
       "volumes": 0,
       "eps": 0,
-      "collection_total": 457352,
+      "collection_total": 457376,
       "score": 7.5,
       "rank": 0,
       "tags": []
-    }
-  },
-  {
-    "subject_id": 420898,
-    "subject_type": 6,
-    "rate": 7,
-    "type": 2,
-    "comment": "",
-    "tags": [],
-    "ep_status": 0,
-    "vol_status": 0,
-    "updated_at": "2026-08-07T05:07:07+08:00",
-    "private": false,
-    "subject": {
-      "id": 420898,
-      "type": 6,
-      "name": "Spider-Man: Brand New Day",
-      "name_cn": "蜘蛛侠：崭新之日",
-      "short_summary": "　　彼得·帕克（汤姆·霍兰德 饰）自愿让全世界遗忘自己，转眼已是四年。失去挚友、挚爱与亲人的陪伴，他独自重返街头，以全职蜘蛛侠的身份坚守使命，守护整座城市。\r\n　　然而，日益沉重的责任与无尽压力，意外引发了一场骇人的身体异变，直接威胁到蜘蛛",
-      "date": "2026-07-29",
-      "images": {
-        "medium": "images/real/420898.avif"
-      },
-      "volumes": 0,
-      "eps": 1,
-      "collection_total": 310,
-      "score": 6.9,
-      "rank": 2224,
-      "tags": [
-        {
-          "name": "漫威",
-          "count": 57
-        },
-        {
-          "name": "电影",
-          "count": 52
-        },
-        {
-          "name": "动作",
-          "count": 42
-        },
-        {
-          "name": "美国",
-          "count": 39
-        },
-        {
-          "name": "2026",
-          "count": 34
-        },
-        {
-          "name": "欧美",
-          "count": 32
-        },
-        {
-          "name": "奇幻",
-          "count": 30
-        },
-        {
-          "name": "蜘蛛侠",
-          "count": 28
-        },
-        {
-          "name": "漫画改",
-          "count": 23
-        },
-        {
-          "name": "超级英雄",
-          "count": 22
-        }
-      ]
     }
   }
 ]

@@ -162,7 +162,7 @@
       },
       "volumes": 0,
       "eps": 8,
-      "collection_total": 4801,
+      "collection_total": 4804,
       "score": 7.7,
       "rank": 816,
       "tags": [
@@ -232,7 +232,7 @@
       },
       "volumes": 0,
       "eps": 11,
-      "collection_total": 15923,
+      "collection_total": 15924,
       "score": 7.8,
       "rank": 469,
       "tags": [
@@ -652,7 +652,7 @@
       },
       "volumes": 0,
       "eps": 24,
-      "collection_total": 35530,
+      "collection_total": 35531,
       "score": 7.1,
       "rank": 2231,
       "tags": [
@@ -862,7 +862,7 @@
       },
       "volumes": 0,
       "eps": 12,
-      "collection_total": 16751,
+      "collection_total": 16753,
       "score": 7.9,
       "rank": 315,
       "tags": [
@@ -932,7 +932,7 @@
       },
       "volumes": 0,
       "eps": 1,
-      "collection_total": 6352,
+      "collection_total": 6353,
       "score": 7.1,
       "rank": 2085,
       "tags": [
@@ -1002,7 +1002,7 @@
       },
       "volumes": 0,
       "eps": 1,
-      "collection_total": 3235,
+      "collection_total": 3236,
       "score": 6.8,
       "rank": 3729,
       "tags": [
@@ -1562,7 +1562,7 @@
       },
       "volumes": 0,
       "eps": 26,
-      "collection_total": 43939,
+      "collection_total": 43940,
       "score": 7.3,
       "rank": 1538,
       "tags": [
@@ -1744,7 +1744,7 @@
         },
         {
           "name": "穿越",
-          "count": 81
+          "count": 82
         }
       ]
     }
@@ -1772,7 +1772,7 @@
       },
       "volumes": 0,
       "eps": 24,
-      "collection_total": 6617,
+      "collection_total": 6619,
       "score": 6.3,
       "rank": 6111,
       "tags": [
@@ -1946,7 +1946,7 @@
         },
         {
           "name": "龙傲天",
-          "count": 461
+          "count": 462
         },
         {
           "name": "2021",
@@ -2126,13 +2126,13 @@
       },
       "volumes": 0,
       "eps": 12,
-      "collection_total": 7388,
+      "collection_total": 7389,
       "score": 6.4,
       "rank": 6050,
       "tags": [
         {
           "name": "异世界",
-          "count": 594
+          "count": 595
         },
         {
           "name": "2025年7月",
@@ -2199,13 +2199,13 @@
       },
       "volumes": 0,
       "eps": 12,
-      "collection_total": 10307,
+      "collection_total": 10309,
       "score": 6.4,
       "rank": 5914,
       "tags": [
         {
           "name": "异世界",
-          "count": 1150
+          "count": 1151
         },
         {
           "name": "2024年4月",
@@ -2217,7 +2217,7 @@
         },
         {
           "name": "正太",
-          "count": 624
+          "count": 625
         },
         {
           "name": "龙傲天",
@@ -2416,7 +2416,7 @@
       },
       "volumes": 0,
       "eps": 26,
-      "collection_total": 2437,
+      "collection_total": 2438,
       "score": 5,
       "rank": 9593,
       "tags": [
@@ -2486,7 +2486,7 @@
       },
       "volumes": 0,
       "eps": 10,
-      "collection_total": 34251,
+      "collection_total": 34255,
       "score": 7.5,
       "rank": 978,
       "tags": [
@@ -2701,7 +2701,7 @@
       },
       "volumes": 0,
       "eps": 24,
-      "collection_total": 30611,
+      "collection_total": 30613,
       "score": 6.7,
       "rank": 4403,
       "tags": [
@@ -2964,7 +2964,7 @@
       },
       "volumes": 0,
       "eps": 12,
-      "collection_total": 15303,
+      "collection_total": 15305,
       "score": 7,
       "rank": 2499,
       "tags": [
@@ -3009,38 +3009,6 @@
           "count": 326
         }
       ]
-    }
-  },
-  {
-    "custom": true,
-    "subject_id": 900001,
-    "subject_type": 2,
-    "rate": 9,
-    "type": 2,
-    "comment": "手动添加的测试条目",
-    "tags": [
-      "自定义"
-    ],
-    "ep_status": 0,
-    "vol_status": 0,
-    "updated_at": "2026-08-08T00:00:00+08:00",
-    "private": false,
-    "subject": {
-      "id": 900001,
-      "type": 2,
-      "name": "Test Custom Anime",
-      "name_cn": "手动测试条目",
-      "short_summary": "这是一条手动添加的测试条目",
-      "date": "2020-01-01",
-      "images": {
-        "medium": "images/custom/anime/900001.avif"
-      },
-      "volumes": 0,
-      "eps": 12,
-      "collection_total": 0,
-      "score": 0,
-      "rank": 0,
-      "tags": []
     }
   }
 ]
