@@ -1,0 +1,56 @@
+name: Sync Bangumi Data
+
+on:
+  # 每天定时同步（北京时间每天 10:00 = UTC 02:00）
+  schedule:
+    - cron: "0 2 * * *"
+  # 每次推送到 main 时也同步（比如改动了 custom/ 手动条目）
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bangumi-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Sync Bangumi data
+        run: pnpm sync
+        env:
+          BGM_USERNAME: ${{ secrets.BGM_USERNAME || 'skyxnok' }}
+          # GitHub Actions 运行在国外服务器，直连官方 API 更快更稳
+          BGM_API_URL: https://api.bgm.tv
+          DOUBAN_ID: ${{ secrets.DOUBAN_ID || '296581086' }}
+
+      - name: Commit and push changes
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "无数据变化，跳过提交"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: sync bangumi data [skip ci]"
+          git push

@@ -1,0 +1,118 @@
+[
+  {
+    "subject_id": 338953,
+    "subject_type": 4,
+    "rate": 0,
+    "type": 2,
+    "comment": "",
+    "tags": [
+      "FPS",
+      "苏联",
+      "PC"
+    ],
+    "ep_status": 0,
+    "vol_status": 0,
+    "updated_at": "2026-08-08T02:15:42+08:00",
+    "private": false,
+    "subject": {
+      "id": 338953,
+      "type": 4,
+      "name": "Atomic Heart",
+      "name_cn": "原子之心",
+      "short_summary": "欢迎来到《原子之心》！这是一款拥有RPG元素的封闭世界动作冒险游戏，故事设定在平行时空下的1955年，在未来主义的苏联社会，科学享有至高无上的地位。世界秩序即将被撼动：三天后，人类即可用意念控制机器人。你将在游戏中扮演特工P-3，探索乌托邦",
+      "date": "2023-02-21",
+      "images": {
+        "medium": "images/game/338953.avif"
+      },
+      "volumes": 0,
+      "eps": 0,
+      "collection_total": 737,
+      "score": 6,
+      "rank": 8942,
+      "tags": [
+        {
+          "name": "FPS",
+          "count": 106
+        },
+        {
+          "name": "苏联",
+          "count": 83
+        },
+        {
+          "name": "PC",
+          "count": 74
+        },
+        {
+          "name": "原子朋克",
+          "count": 71
+        },
+        {
+          "name": "俄罗斯",
+          "count": 49
+        },
+        {
+          "name": "2023",
+          "count": 45
+        },
+        {
+          "name": "XGP",
+          "count": 28
+        },
+        {
+          "name": "美术独此一家",
+          "count": 26
+        },
+        {
+          "name": "开放世界",
+          "count": 25
+        },
+        {
+          "name": "科幻",
+          "count": 21
+        }
+      ]
+    }
+  },
+  {
+    "subject_id": 413480,
+    "subject_type": 4,
+    "rate": 6,
+    "type": 2,
+    "comment": "",
+    "tags": [],
+    "ep_status": 0,
+    "vol_status": 0,
+    "updated_at": "2026-08-07T05:06:52+08:00",
+    "private": false,
+    "subject": {
+      "id": 413480,
+      "type": 4,
+      "name": "#自称美少年の自殺配信",
+      "name_cn": "",
+      "short_summary": "#美少年　#男子中学生　#自殺　#自殺配信　#拡散希望\r\n　半角２８０文字以内のメッセージや画像、動画を自由に\r\n投稿できるソーシャルネットワーキングサービス『ソリロッキー』\r\n\r\n現実に居場所がない俺は、小学生の頃からソリロッキーを愛用し",
+      "date": "2020-01-30",
+      "images": {
+        "medium": "images/game/413480.avif"
+      },
+      "volumes": 0,
+      "eps": 0,
+      "collection_total": 3,
+      "score": 6,
+      "rank": 0,
+      "tags": [
+        {
+          "name": "Web",
+          "count": 1
+        },
+        {
+          "name": "游戏",
+          "count": 1
+        },
+        {
+          "name": "PC",
+          "count": 1
+        }
+      ]
+    }
+  }
+]

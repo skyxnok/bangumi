@@ -1,0 +1,11 @@
+name = "bangumi-data-api"
+main = "worker/worker.js"
+compatibility_date = "2024-09-01"
+
+# 部署后在这里配置 GitHub 仓库信息
+# 也可以到 Cloudflare Dashboard > Worker > Settings > Variables 里配置
+[vars]
+GITHUB_USER = "skyxnok"
+GITHUB_REPO = "bangumi"
+GITHUB_BRANCH = "main"
+CACHE_TTL = "3600"
