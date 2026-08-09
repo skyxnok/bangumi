@@ -27,7 +27,7 @@
       "url": "https://book.douban.com/subject/1054917/",
       "volumes": 0,
       "eps": 0,
-      "collection_total": 45245,
+      "collection_total": 45246,
       "score": 8.4,
       "rank": 0,
       "tags": []
@@ -62,7 +62,7 @@
       "url": "https://book.douban.com/subject/11524204/",
       "volumes": 0,
       "eps": 0,
-      "collection_total": 114793,
+      "collection_total": 114795,
       "score": 9.3,
       "rank": 0,
       "tags": []
@@ -97,7 +97,7 @@
       "url": "https://book.douban.com/subject/7163250/",
       "volumes": 0,
       "eps": 0,
-      "collection_total": 37029,
+      "collection_total": 37030,
       "score": 9.2,
       "rank": 0,
       "tags": []
@@ -132,7 +132,7 @@
       "url": "https://book.douban.com/subject/1322455/",
       "volumes": 0,
       "eps": 0,
-      "collection_total": 55587,
+      "collection_total": 55588,
       "score": 8.6,
       "rank": 0,
       "tags": []
@@ -166,7 +166,7 @@
       "url": "https://book.douban.com/subject/1012611/",
       "volumes": 0,
       "eps": 0,
-      "collection_total": 131411,
+      "collection_total": 131412,
       "score": 8.1,
       "rank": 0,
       "tags": []
@@ -200,7 +200,7 @@
       "url": "https://book.douban.com/subject/27141102/",
       "volumes": 0,
       "eps": 0,
-      "collection_total": 12456,
+      "collection_total": 12457,
       "score": 9.2,
       "rank": 0,
       "tags": []
@@ -301,7 +301,7 @@
       "url": "https://book.douban.com/subject/20441957/",
       "volumes": 0,
       "eps": 0,
-      "collection_total": 91019,
+      "collection_total": 91025,
       "score": 8.5,
       "rank": 0,
       "tags": []
@@ -370,7 +370,7 @@
       "url": "https://book.douban.com/subject/4913064/",
       "volumes": 0,
       "eps": 0,
-      "collection_total": 921910,
+      "collection_total": 921933,
       "score": 9.4,
       "rank": 0,
       "tags": []
@@ -404,7 +404,7 @@
       "url": "https://book.douban.com/subject/27200257/",
       "volumes": 0,
       "eps": 0,
-      "collection_total": 45376,
+      "collection_total": 45378,
       "score": 8.5,
       "rank": 0,
       "tags": []
@@ -433,17 +433,17 @@
       },
       "volumes": 0,
       "eps": 0,
-      "collection_total": 1354,
+      "collection_total": 1356,
       "score": 7.8,
       "rank": 1050,
       "tags": [
         {
           "name": "恋爱",
-          "count": 207
+          "count": 208
         },
         {
           "name": "漫画",
-          "count": 167
+          "count": 169
         },
         {
           "name": "青春",
@@ -451,19 +451,19 @@
         },
         {
           "name": "日本",
-          "count": 87
+          "count": 88
         },
         {
           "name": "豊林サカネ",
-          "count": 57
+          "count": 58
+        },
+        {
+          "name": "青梅竹马",
+          "count": 46
         },
         {
           "name": "少年",
           "count": 46
-        },
-        {
-          "name": "青梅竹马",
-          "count": 45
         },
         {
           "name": "2025",
