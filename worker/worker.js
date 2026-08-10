@@ -123,6 +123,65 @@ export default {
 			return imgResp;
 		}
 
+		// ---------- 路由：GET /friends.json（友链数据，来自独立仓库） ----------
+		if (url.pathname === "/friends.json") {
+			const friendsRepo = env.GITHUB_FRIENDS_REPO || env.GITHUB_REPO;
+			const cacheTtl = Number(env.CACHE_TTL || 300);
+			const dataUrl = `https://raw.githubusercontent.com/${env.GITHUB_USER}/${friendsRepo}/${branch}/friends.json`;
+			const cacheKey = new Request(dataUrl);
+
+			if (!forceRefresh) {
+				const cached = await readCache(cache, cacheKey, cacheTtl);
+				if (cached) return cached;
+			}
+
+			const resp = await fetchRaw(env.GITHUB_USER, friendsRepo, branch, "friends.json");
+			if (!resp) return jsonResponse({ error: "friends.json 不存在于该仓库" }, 404);
+			const body = await resp.text();
+			const out = new Response(body, {
+				headers: {
+					"Content-Type": "application/json; charset=utf-8",
+					"Cache-Control": `public, max-age=${cacheTtl}`,
+					"x-cached-at": String(Date.now()),
+					...CORS,
+				},
+			});
+			ctx.waitUntil(cache.put(cacheKey, out.clone()));
+			return out;
+		}
+
+		// ---------- 路由：GET /friends/avatars/{path}（友链头像代理，来自独立仓库 avatars/ 目录） ----------
+		const favMatch = url.pathname.match(/^\/friends\/avatars\/(.+)$/);
+		if (favMatch) {
+			const rel = favMatch[1];
+			if (!/^[A-Za-z0-9_.\/-]+$/.test(rel) || rel.includes("..") || rel.includes("//")) {
+				return jsonResponse({ error: "Invalid avatar path" }, 400);
+			}
+			const friendsRepo = env.GITHUB_FRIENDS_REPO || env.GITHUB_REPO;
+			const imgTtl = Number(env.IMAGE_CACHE_TTL || 86400);
+			const cacheKey = new Request(`${url.origin}/friends/avatars/${rel}`);
+
+			if (!forceRefresh) {
+				const cached = await readCache(cache, cacheKey, imgTtl);
+				if (cached) return cached;
+			}
+
+			const resp = await fetchRaw(env.GITHUB_USER, friendsRepo, branch, `avatars/${rel}`);
+			if (!resp) return jsonResponse({ error: `头像不存在: avatars/${rel}` }, 404);
+			const buf = await resp.arrayBuffer();
+			const ext = rel.split(".").pop().toLowerCase();
+			const imgResp = new Response(buf, {
+				headers: {
+					"Content-Type": MIME[ext] || "application/octet-stream",
+					"Cache-Control": `public, max-age=${imgTtl}`,
+					"x-cached-at": String(Date.now()),
+					...CORS,
+				},
+			});
+			ctx.waitUntil(cache.put(cacheKey, imgResp.clone()));
+			return imgResp;
+		}
+
 		// ---------- 路由：GET /v0/users/{username}/collections ----------
 		const m = url.pathname.match(/^\/v0\/users\/([^/]+)\/collections$/);
 		if (!m) {

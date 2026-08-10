@@ -13,5 +13,6 @@ routes = [
 [vars]
 GITHUB_USER = "skyxnok"
 GITHUB_REPO = "bangumi"
+GITHUB_FRIENDS_REPO = "af_friends-data" # 友链数据仓库
 GITHUB_BRANCH = "main"
 CACHE_TTL = "300"
