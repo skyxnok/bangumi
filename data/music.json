@@ -22,7 +22,7 @@
       },
       "volumes": 0,
       "eps": 0,
-      "collection_total": 98,
+      "collection_total": 100,
       "score": 7.7,
       "rank": 2666,
       "tags": [
@@ -43,15 +43,15 @@
           "count": 9
         },
         {
-          "name": "anime",
-          "count": 8
-        },
-        {
           "name": "single",
           "count": 8
         },
         {
           "name": "尼古喵喵",
+          "count": 8
+        },
+        {
+          "name": "anime",
           "count": 8
         },
         {
