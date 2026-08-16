@@ -387,6 +387,15 @@ async function syncCategory(cat) {
 		console.log(`[${cat.key}] 合并手动条目 ${customItems.length} 条`);
 	}
 
+	// 去重：豆瓣分页可能返回重叠条目，按 subject_id 去重（保留首次出现，Bangumi 优先于豆瓣）
+	const seenIds = new Set();
+	out = out.filter((item) => {
+		const sid = item.subject_id;
+		if (seenIds.has(sid)) return false;
+		seenIds.add(sid);
+		return true;
+	});
+
 	// 含豆瓣数据的分类按更新时间倒序，统一时间线（anime 保持原样）
 	if (hasDouban) {
 		out = sortByUpdatedAt(out);
