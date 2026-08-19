@@ -22,17 +22,17 @@
       },
       "volumes": 0,
       "eps": 0,
-      "collection_total": 111,
+      "collection_total": 112,
       "score": 7.7,
       "rank": 2800,
       "tags": [
         {
           "name": "OP",
-          "count": 23
+          "count": 24
         },
         {
           "name": "动画",
-          "count": 14
+          "count": 15
         },
         {
           "name": "2026",
@@ -43,11 +43,11 @@
           "count": 10
         },
         {
-          "name": "single",
+          "name": "anime",
           "count": 8
         },
         {
-          "name": "anime",
+          "name": "single",
           "count": 8
         },
         {
