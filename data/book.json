@@ -27,7 +27,7 @@
       "url": "https://book.douban.com/subject/1054917/",
       "volumes": 0,
       "eps": 0,
-      "collection_total": 45504,
+      "collection_total": 45510,
       "score": 8.4,
       "rank": 0,
       "tags": []
@@ -62,7 +62,7 @@
       "url": "https://book.douban.com/subject/11524204/",
       "volumes": 0,
       "eps": 0,
-      "collection_total": 115013,
+      "collection_total": 115016,
       "score": 9.3,
       "rank": 0,
       "tags": []
@@ -97,7 +97,7 @@
       "url": "https://book.douban.com/subject/7163250/",
       "volumes": 0,
       "eps": 0,
-      "collection_total": 37093,
+      "collection_total": 37094,
       "score": 9.2,
       "rank": 0,
       "tags": []
@@ -166,7 +166,7 @@
       "url": "https://book.douban.com/subject/1012611/",
       "volumes": 0,
       "eps": 0,
-      "collection_total": 131537,
+      "collection_total": 131542,
       "score": 8.1,
       "rank": 0,
       "tags": []
@@ -200,7 +200,7 @@
       "url": "https://book.douban.com/subject/27141102/",
       "volumes": 0,
       "eps": 0,
-      "collection_total": 12512,
+      "collection_total": 12513,
       "score": 9.2,
       "rank": 0,
       "tags": []
@@ -233,7 +233,7 @@
       "url": "https://book.douban.com/subject/26291216/",
       "volumes": 0,
       "eps": 0,
-      "collection_total": 22995,
+      "collection_total": 22998,
       "score": 6.5,
       "rank": 0,
       "tags": []
@@ -301,7 +301,7 @@
       "url": "https://book.douban.com/subject/20441957/",
       "volumes": 0,
       "eps": 0,
-      "collection_total": 91262,
+      "collection_total": 91263,
       "score": 8.5,
       "rank": 0,
       "tags": []
@@ -370,7 +370,7 @@
       "url": "https://book.douban.com/subject/4913064/",
       "volumes": 0,
       "eps": 0,
-      "collection_total": 923886,
+      "collection_total": 923932,
       "score": 9.4,
       "rank": 0,
       "tags": []
@@ -404,7 +404,7 @@
       "url": "https://book.douban.com/subject/27200257/",
       "volumes": 0,
       "eps": 0,
-      "collection_total": 45676,
+      "collection_total": 45679,
       "score": 8.5,
       "rank": 0,
       "tags": []
@@ -433,13 +433,13 @@
       },
       "volumes": 0,
       "eps": 0,
-      "collection_total": 1451,
+      "collection_total": 1453,
       "score": 7.9,
       "rank": 958,
       "tags": [
         {
           "name": "恋爱",
-          "count": 224
+          "count": 225
         },
         {
           "name": "漫画",
@@ -447,7 +447,7 @@
         },
         {
           "name": "青春",
-          "count": 111
+          "count": 112
         },
         {
           "name": "日本",
