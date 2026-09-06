@@ -22,13 +22,13 @@
       },
       "volumes": 0,
       "eps": 0,
-      "collection_total": 136,
+      "collection_total": 138,
       "score": 7.7,
       "rank": 2411,
       "tags": [
         {
           "name": "OP",
-          "count": 26
+          "count": 27
         },
         {
           "name": "动画",
@@ -39,19 +39,19 @@
           "count": 14
         },
         {
+          "name": "尼古喵喵",
+          "count": 10
+        },
+        {
           "name": "OST",
           "count": 10
         },
         {
-          "name": "anime",
-          "count": 9
-        },
-        {
-          "name": "尼古喵喵",
-          "count": 9
-        },
-        {
           "name": "single",
+          "count": 9
+        },
+        {
+          "name": "anime",
           "count": 9
         },
         {
