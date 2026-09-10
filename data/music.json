@@ -22,7 +22,7 @@
       },
       "volumes": 0,
       "eps": 0,
-      "collection_total": 141,
+      "collection_total": 142,
       "score": 7.8,
       "rank": 2255,
       "tags": [
@@ -47,11 +47,11 @@
           "count": 10
         },
         {
-          "name": "anime",
+          "name": "single",
           "count": 9
         },
         {
-          "name": "single",
+          "name": "anime",
           "count": 9
         },
         {
@@ -59,11 +59,11 @@
           "count": 7
         },
         {
-          "name": "2025",
+          "name": "日本",
           "count": 4
         },
         {
-          "name": "日本",
+          "name": "2025",
           "count": 4
         }
       ]
