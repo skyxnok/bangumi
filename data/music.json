@@ -22,13 +22,13 @@
       },
       "volumes": 0,
       "eps": 0,
-      "collection_total": 146,
+      "collection_total": 148,
       "score": 7.8,
       "rank": 2231,
       "tags": [
         {
           "name": "OP",
-          "count": 30
+          "count": 31
         },
         {
           "name": "动画",
@@ -40,30 +40,30 @@
         },
         {
           "name": "尼古喵喵",
-          "count": 11
+          "count": 12
         },
         {
           "name": "OST",
           "count": 10
         },
         {
-          "name": "single",
-          "count": 9
-        },
-        {
           "name": "anime",
           "count": 9
         },
         {
-          "name": "插入歌",
-          "count": 7
+          "name": "single",
+          "count": 9
         },
         {
-          "name": "日本",
-          "count": 4
+          "name": "插入歌",
+          "count": 8
         },
         {
           "name": "2025",
+          "count": 4
+        },
+        {
+          "name": "日本",
           "count": 4
         }
       ]
