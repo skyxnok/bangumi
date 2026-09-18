@@ -97,7 +97,7 @@
       "url": "https://book.douban.com/subject/7163250/",
       "volumes": 0,
       "eps": 0,
-      "collection_total": 37146,
+      "collection_total": 37147,
       "score": 9.2,
       "rank": 0,
       "tags": []
@@ -132,7 +132,7 @@
       "url": "https://book.douban.com/subject/1322455/",
       "volumes": 0,
       "eps": 0,
-      "collection_total": 56158,
+      "collection_total": 56159,
       "score": 8.6,
       "rank": 0,
       "tags": []
@@ -433,13 +433,13 @@
       },
       "volumes": 0,
       "eps": 0,
-      "collection_total": 1524,
+      "collection_total": 1525,
       "score": 7.9,
-      "rank": 936,
+      "rank": 925,
       "tags": [
         {
           "name": "恋爱",
-          "count": 243
+          "count": 244
         },
         {
           "name": "漫画",
@@ -451,7 +451,7 @@
         },
         {
           "name": "日本",
-          "count": 101
+          "count": 102
         },
         {
           "name": "豊林サカネ",
@@ -463,7 +463,7 @@
         },
         {
           "name": "校园",
-          "count": 53
+          "count": 54
         },
         {
           "name": "少年",
