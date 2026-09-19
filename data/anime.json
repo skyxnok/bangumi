@@ -22,7 +22,7 @@
       },
       "volumes": 0,
       "eps": 8,
-      "collection_total": 23852,
+      "collection_total": 23858,
       "score": 7.1,
       "rank": 2028,
       "tags": [
@@ -92,7 +92,7 @@
       },
       "volumes": 0,
       "eps": 1,
-      "collection_total": 12074,
+      "collection_total": 12077,
       "score": 6.7,
       "rank": 4194,
       "tags": [
@@ -162,7 +162,7 @@
       },
       "volumes": 0,
       "eps": 8,
-      "collection_total": 9785,
+      "collection_total": 9793,
       "score": 7.7,
       "rank": 629,
       "tags": [
@@ -232,7 +232,7 @@
       },
       "volumes": 0,
       "eps": 11,
-      "collection_total": 17282,
+      "collection_total": 17288,
       "score": 7.8,
       "rank": 469,
       "tags": [
@@ -302,7 +302,7 @@
       },
       "volumes": 0,
       "eps": 25,
-      "collection_total": 49705,
+      "collection_total": 49712,
       "score": 7.5,
       "rank": 1022,
       "tags": [
@@ -372,7 +372,7 @@
       },
       "volumes": 0,
       "eps": 13,
-      "collection_total": 34765,
+      "collection_total": 34773,
       "score": 7.4,
       "rank": 1048,
       "tags": [
@@ -442,7 +442,7 @@
       },
       "volumes": 0,
       "eps": 1,
-      "collection_total": 13854,
+      "collection_total": 13857,
       "score": 6.9,
       "rank": 3072,
       "tags": [
@@ -582,7 +582,7 @@
       },
       "volumes": 0,
       "eps": 167,
-      "collection_total": 12960,
+      "collection_total": 12961,
       "score": 7.7,
       "rank": 604,
       "tags": [
@@ -652,7 +652,7 @@
       },
       "volumes": 0,
       "eps": 24,
-      "collection_total": 36340,
+      "collection_total": 36347,
       "score": 7.1,
       "rank": 2239,
       "tags": [
@@ -792,7 +792,7 @@
       },
       "volumes": 0,
       "eps": 0,
-      "collection_total": 1629,
+      "collection_total": 1631,
       "score": 8.4,
       "rank": 0,
       "tags": [
@@ -862,7 +862,7 @@
       },
       "volumes": 0,
       "eps": 12,
-      "collection_total": 17569,
+      "collection_total": 17574,
       "score": 7.9,
       "rank": 318,
       "tags": [
@@ -932,7 +932,7 @@
       },
       "volumes": 0,
       "eps": 1,
-      "collection_total": 6493,
+      "collection_total": 6494,
       "score": 7.1,
       "rank": 2078,
       "tags": [
@@ -1002,7 +1002,7 @@
       },
       "volumes": 0,
       "eps": 1,
-      "collection_total": 3295,
+      "collection_total": 3297,
       "score": 6.8,
       "rank": 3701,
       "tags": [
@@ -1072,7 +1072,7 @@
       },
       "volumes": 0,
       "eps": 1,
-      "collection_total": 4096,
+      "collection_total": 4097,
       "score": 6.6,
       "rank": 4663,
       "tags": [
@@ -1142,7 +1142,7 @@
       },
       "volumes": 0,
       "eps": 11,
-      "collection_total": 22422,
+      "collection_total": 22424,
       "score": 6.6,
       "rank": 4641,
       "tags": [
@@ -1212,7 +1212,7 @@
       },
       "volumes": 0,
       "eps": 11,
-      "collection_total": 26335,
+      "collection_total": 26337,
       "score": 7.3,
       "rank": 1461,
       "tags": [
@@ -1282,7 +1282,7 @@
       },
       "volumes": 0,
       "eps": 1,
-      "collection_total": 3550,
+      "collection_total": 3551,
       "score": 6.7,
       "rank": 4295,
       "tags": [
@@ -1352,7 +1352,7 @@
       },
       "volumes": 0,
       "eps": 1,
-      "collection_total": 3783,
+      "collection_total": 3784,
       "score": 6.7,
       "rank": 4036,
       "tags": [
@@ -1422,7 +1422,7 @@
       },
       "volumes": 0,
       "eps": 7,
-      "collection_total": 22784,
+      "collection_total": 22787,
       "score": 7.3,
       "rank": 1430,
       "tags": [
@@ -1521,11 +1521,11 @@
           "count": 25
         },
         {
-          "name": "ufotable",
+          "name": "奇幻",
           "count": 24
         },
         {
-          "name": "奇幻",
+          "name": "ufotable",
           "count": 24
         },
         {
@@ -1562,7 +1562,7 @@
       },
       "volumes": 0,
       "eps": 26,
-      "collection_total": 44685,
+      "collection_total": 44691,
       "score": 7.3,
       "rank": 1548,
       "tags": [
@@ -1632,7 +1632,7 @@
       },
       "volumes": 0,
       "eps": 1,
-      "collection_total": 1727,
+      "collection_total": 1728,
       "score": 4.9,
       "rank": 9848,
       "tags": [
@@ -1702,7 +1702,7 @@
       },
       "volumes": 0,
       "eps": 1,
-      "collection_total": 4803,
+      "collection_total": 4804,
       "score": 5.8,
       "rank": 8628,
       "tags": [
@@ -1772,21 +1772,21 @@
       },
       "volumes": 0,
       "eps": 24,
-      "collection_total": 7320,
+      "collection_total": 7322,
       "score": 6.3,
       "rank": 6342,
       "tags": [
         {
           "name": "2026年4月",
-          "count": 518
+          "count": 521
         },
         {
           "name": "异世界",
-          "count": 479
+          "count": 481
         },
         {
           "name": "轻小说改",
-          "count": 351
+          "count": 353
         },
         {
           "name": "奇幻",
@@ -1798,23 +1798,23 @@
         },
         {
           "name": "TV",
-          "count": 276
+          "count": 277
         },
         {
           "name": "2026",
-          "count": 219
+          "count": 220
         },
         {
           "name": "漫画改",
-          "count": 201
+          "count": 202
         },
         {
           "name": "8bit",
-          "count": 195
+          "count": 196
         },
         {
           "name": "关于我转生变成史莱姆这档事",
-          "count": 188
+          "count": 190
         }
       ]
     }
@@ -1912,7 +1912,7 @@
       },
       "volumes": 0,
       "eps": 12,
-      "collection_total": 15456,
+      "collection_total": 15458,
       "score": 6.1,
       "rank": 7632,
       "tags": [
@@ -1982,7 +1982,7 @@
       },
       "volumes": 0,
       "eps": 24,
-      "collection_total": 11778,
+      "collection_total": 11779,
       "score": 5.7,
       "rank": 8908,
       "tags": [
@@ -2054,7 +2054,7 @@
       },
       "volumes": 0,
       "eps": 24,
-      "collection_total": 14667,
+      "collection_total": 14670,
       "score": 6,
       "rank": 7726,
       "tags": [
@@ -2126,7 +2126,7 @@
       },
       "volumes": 0,
       "eps": 12,
-      "collection_total": 7575,
+      "collection_total": 7577,
       "score": 6.4,
       "rank": 6004,
       "tags": [
@@ -2140,7 +2140,7 @@
         },
         {
           "name": "龙傲天",
-          "count": 509
+          "count": 510
         },
         {
           "name": "战斗",
@@ -2199,7 +2199,7 @@
       },
       "volumes": 0,
       "eps": 12,
-      "collection_total": 10538,
+      "collection_total": 10540,
       "score": 6.4,
       "rank": 5912,
       "tags": [
@@ -2221,7 +2221,7 @@
         },
         {
           "name": "龙傲天",
-          "count": 594
+          "count": 595
         },
         {
           "name": "奇幻",
@@ -2271,7 +2271,7 @@
       },
       "volumes": 0,
       "eps": 13,
-      "collection_total": 35768,
+      "collection_total": 35771,
       "score": 7.3,
       "rank": 1558,
       "tags": [
@@ -2416,17 +2416,17 @@
       },
       "volumes": 0,
       "eps": 26,
-      "collection_total": 2961,
+      "collection_total": 2963,
       "score": 4.8,
       "rank": 9884,
       "tags": [
         {
           "name": "2026年7月",
-          "count": 205
+          "count": 206
         },
         {
           "name": "GoHands",
-          "count": 166
+          "count": 167
         },
         {
           "name": "TV",
@@ -2434,15 +2434,15 @@
         },
         {
           "name": "漫画改",
-          "count": 136
+          "count": 137
         },
         {
           "name": "战斗",
-          "count": 133
+          "count": 134
         },
         {
           "name": "奇幻",
-          "count": 117
+          "count": 118
         },
         {
           "name": "异世界",
@@ -2486,7 +2486,7 @@
       },
       "volumes": 0,
       "eps": 10,
-      "collection_total": 35579,
+      "collection_total": 35583,
       "score": 7.5,
       "rank": 984,
       "tags": [
@@ -2556,7 +2556,7 @@
       },
       "volumes": 0,
       "eps": 11,
-      "collection_total": 3418,
+      "collection_total": 3420,
       "score": 6.8,
       "rank": 3356,
       "tags": [
@@ -2631,7 +2631,7 @@
       },
       "volumes": 0,
       "eps": 12,
-      "collection_total": 18450,
+      "collection_total": 18451,
       "score": 6.1,
       "rank": 7485,
       "tags": [
@@ -2701,7 +2701,7 @@
       },
       "volumes": 0,
       "eps": 24,
-      "collection_total": 31282,
+      "collection_total": 31284,
       "score": 6.7,
       "rank": 4395,
       "tags": [
@@ -2771,7 +2771,7 @@
       },
       "volumes": 0,
       "eps": 1155,
-      "collection_total": 35522,
+      "collection_total": 35524,
       "score": 8.3,
       "rank": 105,
       "tags": [
@@ -2844,7 +2844,7 @@
       },
       "volumes": 0,
       "eps": 11,
-      "collection_total": 54523,
+      "collection_total": 54527,
       "score": 8,
       "rank": 266,
       "tags": [
@@ -2964,7 +2964,7 @@
       },
       "volumes": 0,
       "eps": 12,
-      "collection_total": 17200,
+      "collection_total": 17204,
       "score": 7,
       "rank": 2683,
       "tags": [
