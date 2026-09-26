@@ -22,7 +22,7 @@
       },
       "volumes": 0,
       "eps": 0,
-      "collection_total": 183,
+      "collection_total": 185,
       "score": 7.7,
       "rank": 2331,
       "tags": [
@@ -47,19 +47,19 @@
           "count": 12
         },
         {
-          "name": "日本",
-          "count": 11
-        },
-        {
           "name": "single",
           "count": 11
         },
         {
-          "name": "anime",
-          "count": 10
+          "name": "日本",
+          "count": 11
         },
         {
           "name": "插入歌",
+          "count": 10
+        },
+        {
+          "name": "anime",
           "count": 10
         },
         {
