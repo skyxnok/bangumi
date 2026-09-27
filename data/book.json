@@ -132,7 +132,7 @@
       "url": "https://book.douban.com/subject/1322455/",
       "volumes": 0,
       "eps": 0,
-      "collection_total": 56322,
+      "collection_total": 56323,
       "score": 8.6,
       "rank": 0,
       "tags": []
@@ -370,7 +370,7 @@
       "url": "https://book.douban.com/subject/4913064/",
       "volumes": 0,
       "eps": 0,
-      "collection_total": 926006,
+      "collection_total": 926008,
       "score": 9.4,
       "rank": 0,
       "tags": []
@@ -433,17 +433,17 @@
       },
       "volumes": 0,
       "eps": 0,
-      "collection_total": 1567,
+      "collection_total": 1568,
       "score": 7.9,
       "rank": 945,
       "tags": [
         {
           "name": "恋爱",
-          "count": 248
+          "count": 249
         },
         {
           "name": "漫画",
-          "count": 191
+          "count": 192
         },
         {
           "name": "青春",
