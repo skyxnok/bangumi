@@ -22,7 +22,7 @@
       },
       "volumes": 0,
       "eps": 0,
-      "collection_total": 193,
+      "collection_total": 195,
       "score": 7.7,
       "rank": 2257,
       "tags": [
@@ -55,11 +55,11 @@
           "count": 11
         },
         {
-          "name": "插入歌",
+          "name": "anime",
           "count": 10
         },
         {
-          "name": "anime",
+          "name": "插入歌",
           "count": 10
         },
         {
