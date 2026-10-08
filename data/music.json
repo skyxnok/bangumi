@@ -22,7 +22,7 @@
       },
       "volumes": 0,
       "eps": 0,
-      "collection_total": 213,
+      "collection_total": 214,
       "score": 7.7,
       "rank": 2509,
       "tags": [
@@ -51,11 +51,11 @@
           "count": 12
         },
         {
-          "name": "anime",
+          "name": "single",
           "count": 11
         },
         {
-          "name": "single",
+          "name": "anime",
           "count": 11
         },
         {
