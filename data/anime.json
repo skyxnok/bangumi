@@ -22,7 +22,7 @@
       },
       "volumes": 0,
       "eps": 8,
-      "collection_total": 24811,
+      "collection_total": 24821,
       "score": 7.1,
       "rank": 2078,
       "tags": [
@@ -92,7 +92,7 @@
       },
       "volumes": 0,
       "eps": 1,
-      "collection_total": 12437,
+      "collection_total": 12441,
       "score": 6.7,
       "rank": 4218,
       "tags": [
@@ -162,29 +162,29 @@
       },
       "volumes": 0,
       "eps": 8,
-      "collection_total": 12947,
+      "collection_total": 12971,
       "score": 7.2,
       "rank": 1887,
       "tags": [
         {
           "name": "异世界",
-          "count": 1044
+          "count": 1049
         },
         {
           "name": "2026年7月",
-          "count": 773
+          "count": 776
         },
         {
           "name": "奇幻",
-          "count": 729
+          "count": 731
         },
         {
           "name": "WHITEFOX",
-          "count": 708
+          "count": 709
         },
         {
           "name": "战斗",
-          "count": 676
+          "count": 678
         },
         {
           "name": "TV",
@@ -192,11 +192,11 @@
         },
         {
           "name": "轻小说改",
-          "count": 570
+          "count": 573
         },
         {
           "name": "冒险",
-          "count": 451
+          "count": 454
         },
         {
           "name": "小说改",
@@ -232,49 +232,49 @@
       },
       "volumes": 0,
       "eps": 11,
-      "collection_total": 18889,
+      "collection_total": 18905,
       "score": 7.7,
       "rank": 496,
       "tags": [
         {
           "name": "异世界",
-          "count": 1615
+          "count": 1617
         },
         {
           "name": "奇幻",
-          "count": 1208
+          "count": 1210
         },
         {
           "name": "2026年4月",
-          "count": 1103
+          "count": 1106
         },
         {
           "name": "战斗",
-          "count": 1006
+          "count": 1009
         },
         {
           "name": "WHITEFOX",
-          "count": 959
+          "count": 960
         },
         {
           "name": "TV",
-          "count": 912
+          "count": 913
         },
         {
           "name": "轻小说改",
-          "count": 851
+          "count": 853
         },
         {
           "name": "小说改",
-          "count": 630
+          "count": 631
         },
         {
           "name": "冒险",
-          "count": 604
+          "count": 606
         },
         {
           "name": "轮回",
-          "count": 564
+          "count": 566
         }
       ]
     }
@@ -302,7 +302,7 @@
       },
       "volumes": 0,
       "eps": 25,
-      "collection_total": 51030,
+      "collection_total": 51047,
       "score": 7.5,
       "rank": 1008,
       "tags": [
@@ -328,7 +328,7 @@
         },
         {
           "name": "Re:从零开始异世界生活",
-          "count": 2936
+          "count": 2937
         },
         {
           "name": "奇幻",
@@ -372,7 +372,7 @@
       },
       "volumes": 0,
       "eps": 13,
-      "collection_total": 35800,
+      "collection_total": 35814,
       "score": 7.4,
       "rank": 1056,
       "tags": [
@@ -442,7 +442,7 @@
       },
       "volumes": 0,
       "eps": 1,
-      "collection_total": 14248,
+      "collection_total": 14253,
       "score": 6.9,
       "rank": 3085,
       "tags": [
@@ -483,7 +483,7 @@
           "count": 402
         },
         {
-          "name": "恋爱",
+          "name": "剧场版",
           "count": 332
         }
       ]
@@ -582,7 +582,7 @@
       },
       "volumes": 0,
       "eps": 167,
-      "collection_total": 13158,
+      "collection_total": 13159,
       "score": 7.7,
       "rank": 609,
       "tags": [
@@ -652,7 +652,7 @@
       },
       "volumes": 0,
       "eps": 24,
-      "collection_total": 37473,
+      "collection_total": 37483,
       "score": 7.1,
       "rank": 2257,
       "tags": [
@@ -722,7 +722,7 @@
       },
       "volumes": 0,
       "eps": 1,
-      "collection_total": 476,
+      "collection_total": 477,
       "score": 6.3,
       "rank": 5158,
       "tags": [
@@ -792,7 +792,7 @@
       },
       "volumes": 0,
       "eps": 0,
-      "collection_total": 1870,
+      "collection_total": 1872,
       "score": 8.2,
       "rank": 0,
       "tags": [
@@ -862,7 +862,7 @@
       },
       "volumes": 0,
       "eps": 12,
-      "collection_total": 18728,
+      "collection_total": 18739,
       "score": 7.9,
       "rank": 319,
       "tags": [
@@ -884,7 +884,7 @@
         },
         {
           "name": "TV",
-          "count": 1089
+          "count": 1090
         },
         {
           "name": "奇幻",
@@ -1002,7 +1002,7 @@
       },
       "volumes": 0,
       "eps": 1,
-      "collection_total": 3402,
+      "collection_total": 3403,
       "score": 6.8,
       "rank": 3738,
       "tags": [
@@ -1142,7 +1142,7 @@
       },
       "volumes": 0,
       "eps": 11,
-      "collection_total": 22944,
+      "collection_total": 22948,
       "score": 6.6,
       "rank": 4673,
       "tags": [
@@ -1152,7 +1152,7 @@
         },
         {
           "name": "战斗",
-          "count": 2063
+          "count": 2062
         },
         {
           "name": "热血",
@@ -1212,7 +1212,7 @@
       },
       "volumes": 0,
       "eps": 11,
-      "collection_total": 26901,
+      "collection_total": 26905,
       "score": 7.3,
       "rank": 1467,
       "tags": [
@@ -1222,7 +1222,7 @@
         },
         {
           "name": "战斗",
-          "count": 2552
+          "count": 2551
         },
         {
           "name": "ufotable",
@@ -1282,7 +1282,7 @@
       },
       "volumes": 0,
       "eps": 1,
-      "collection_total": 3689,
+      "collection_total": 3690,
       "score": 6.7,
       "rank": 4345,
       "tags": [
@@ -1352,7 +1352,7 @@
       },
       "volumes": 0,
       "eps": 1,
-      "collection_total": 3916,
+      "collection_total": 3917,
       "score": 6.7,
       "rank": 4051,
       "tags": [
@@ -1422,13 +1422,13 @@
       },
       "volumes": 0,
       "eps": 7,
-      "collection_total": 23316,
+      "collection_total": 23320,
       "score": 7.3,
       "rank": 1441,
       "tags": [
         {
           "name": "战斗",
-          "count": 2261
+          "count": 2260
         },
         {
           "name": "热血",
@@ -1562,7 +1562,7 @@
       },
       "volumes": 0,
       "eps": 26,
-      "collection_total": 45605,
+      "collection_total": 45612,
       "score": 7.3,
       "rank": 1567,
       "tags": [
@@ -1572,7 +1572,7 @@
         },
         {
           "name": "战斗",
-          "count": 4467
+          "count": 4466
         },
         {
           "name": "ufotable",
@@ -1632,7 +1632,7 @@
       },
       "volumes": 0,
       "eps": 1,
-      "collection_total": 1938,
+      "collection_total": 1939,
       "score": 4.9,
       "rank": 9964,
       "tags": [
@@ -1772,21 +1772,21 @@
       },
       "volumes": 0,
       "eps": 24,
-      "collection_total": 8205,
+      "collection_total": 8211,
       "score": 6.3,
       "rank": 6500,
       "tags": [
         {
           "name": "异世界",
-          "count": 575
+          "count": 576
         },
         {
           "name": "2026年4月",
-          "count": 490
+          "count": 492
         },
         {
           "name": "战斗",
-          "count": 367
+          "count": 368
         },
         {
           "name": "轻小说改",
@@ -1794,19 +1794,19 @@
         },
         {
           "name": "TV",
-          "count": 348
+          "count": 349
         },
         {
           "name": "奇幻",
-          "count": 339
+          "count": 340
         },
         {
           "name": "2026",
-          "count": 266
+          "count": 267
         },
         {
           "name": "8bit",
-          "count": 209
+          "count": 210
         },
         {
           "name": "关于我转生变成史莱姆这档事",
@@ -1814,7 +1814,7 @@
         },
         {
           "name": "漫画改",
-          "count": 201
+          "count": 203
         }
       ]
     }
@@ -1912,7 +1912,7 @@
       },
       "volumes": 0,
       "eps": 12,
-      "collection_total": 15918,
+      "collection_total": 15920,
       "score": 6.1,
       "rank": 7685,
       "tags": [
@@ -1982,7 +1982,7 @@
       },
       "volumes": 0,
       "eps": 24,
-      "collection_total": 12214,
+      "collection_total": 12219,
       "score": 5.7,
       "rank": 8972,
       "tags": [
@@ -2054,7 +2054,7 @@
       },
       "volumes": 0,
       "eps": 24,
-      "collection_total": 15016,
+      "collection_total": 15020,
       "score": 6,
       "rank": 7787,
       "tags": [
@@ -2126,7 +2126,7 @@
       },
       "volumes": 0,
       "eps": 12,
-      "collection_total": 7826,
+      "collection_total": 7827,
       "score": 6.4,
       "rank": 6084,
       "tags": [
@@ -2199,7 +2199,7 @@
       },
       "volumes": 0,
       "eps": 12,
-      "collection_total": 10850,
+      "collection_total": 10851,
       "score": 6.4,
       "rank": 5950,
       "tags": [
@@ -2271,7 +2271,7 @@
       },
       "volumes": 0,
       "eps": 13,
-      "collection_total": 37423,
+      "collection_total": 37436,
       "score": 7.3,
       "rank": 1573,
       "tags": [
@@ -2346,7 +2346,7 @@
       },
       "volumes": 0,
       "eps": 366,
-      "collection_total": 14198,
+      "collection_total": 14208,
       "score": 7.3,
       "rank": 1489,
       "tags": [
@@ -2416,7 +2416,7 @@
       },
       "volumes": 0,
       "eps": 26,
-      "collection_total": 3529,
+      "collection_total": 3530,
       "score": 4.9,
       "rank": 10005,
       "tags": [
@@ -2486,13 +2486,13 @@
       },
       "volumes": 0,
       "eps": 10,
-      "collection_total": 37206,
+      "collection_total": 37217,
       "score": 7.5,
       "rank": 993,
       "tags": [
         {
           "name": "奇幻",
-          "count": 2636
+          "count": 2637
         },
         {
           "name": "MADHouse",
@@ -2500,7 +2500,7 @@
         },
         {
           "name": "漫画改",
-          "count": 2317
+          "count": 2318
         },
         {
           "name": "2026年1月",
@@ -2508,11 +2508,11 @@
         },
         {
           "name": "公路片",
-          "count": 2068
+          "count": 2070
         },
         {
           "name": "TV",
-          "count": 1914
+          "count": 1916
         },
         {
           "name": "治愈",
@@ -2528,7 +2528,7 @@
         },
         {
           "name": "2026",
-          "count": 1000
+          "count": 1001
         }
       ]
     }
@@ -2556,7 +2556,7 @@
       },
       "volumes": 0,
       "eps": 11,
-      "collection_total": 3483,
+      "collection_total": 3484,
       "score": 6.8,
       "rank": 3386,
       "tags": [
@@ -2631,7 +2631,7 @@
       },
       "volumes": 0,
       "eps": 12,
-      "collection_total": 18965,
+      "collection_total": 18969,
       "score": 6.1,
       "rank": 7543,
       "tags": [
@@ -2701,7 +2701,7 @@
       },
       "volumes": 0,
       "eps": 24,
-      "collection_total": 32082,
+      "collection_total": 32090,
       "score": 6.7,
       "rank": 4418,
       "tags": [
@@ -2771,7 +2771,7 @@
       },
       "volumes": 0,
       "eps": 1155,
-      "collection_total": 36071,
+      "collection_total": 36072,
       "score": 8.3,
       "rank": 105,
       "tags": [
@@ -2781,7 +2781,7 @@
         },
         {
           "name": "海贼王",
-          "count": 9271
+          "count": 9272
         },
         {
           "name": "热血",
@@ -2844,7 +2844,7 @@
       },
       "volumes": 0,
       "eps": 11,
-      "collection_total": 56581,
+      "collection_total": 56598,
       "score": 8,
       "rank": 267,
       "tags": [
@@ -2866,7 +2866,7 @@
         },
         {
           "name": "奇幻",
-          "count": 3101
+          "count": 3102
         },
         {
           "name": "穿越",
@@ -2964,37 +2964,37 @@
       },
       "volumes": 0,
       "eps": 12,
-      "collection_total": 19547,
+      "collection_total": 19566,
       "score": 6.8,
       "rank": 3510,
       "tags": [
         {
           "name": "恋爱",
-          "count": 1663
+          "count": 1664
         },
         {
           "name": "漫画改",
-          "count": 1209
+          "count": 1211
         },
         {
           "name": "2026年7月",
-          "count": 1172
+          "count": 1173
         },
         {
           "name": "日常",
-          "count": 1010
+          "count": 1012
         },
         {
           "name": "TV",
-          "count": 954
+          "count": 955
         },
         {
           "name": "旭production",
-          "count": 667
+          "count": 668
         },
         {
           "name": "职场",
-          "count": 624
+          "count": 625
         },
         {
           "name": "2026",
@@ -3002,11 +3002,11 @@
         },
         {
           "name": "日本",
-          "count": 537
+          "count": 538
         },
         {
           "name": "青年向",
-          "count": 470
+          "count": 471
         }
       ]
     }
