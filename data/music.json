@@ -22,21 +22,21 @@
       },
       "volumes": 0,
       "eps": 0,
-      "collection_total": 244,
+      "collection_total": 245,
       "score": 7.7,
       "rank": 2288,
       "tags": [
         {
           "name": "OP",
-          "count": 55
+          "count": 56
         },
         {
           "name": "动画",
-          "count": 30
+          "count": 31
         },
         {
           "name": "2026",
-          "count": 29
+          "count": 30
         },
         {
           "name": "尼古喵喵",
@@ -48,14 +48,14 @@
         },
         {
           "name": "日本",
-          "count": 12
-        },
-        {
-          "name": "single",
-          "count": 11
+          "count": 13
         },
         {
           "name": "anime",
+          "count": 11
+        },
+        {
+          "name": "single",
           "count": 11
         },
         {
