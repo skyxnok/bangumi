@@ -22,13 +22,13 @@
       },
       "volumes": 0,
       "eps": 0,
-      "collection_total": 245,
+      "collection_total": 246,
       "score": 7.7,
       "rank": 2282,
       "tags": [
         {
           "name": "OP",
-          "count": 56
+          "count": 57
         },
         {
           "name": "动画",
@@ -43,19 +43,19 @@
           "count": 27
         },
         {
-          "name": "OST",
-          "count": 13
-        },
-        {
           "name": "日本",
           "count": 13
         },
         {
-          "name": "anime",
-          "count": 11
+          "name": "OST",
+          "count": 13
         },
         {
           "name": "single",
+          "count": 11
+        },
+        {
+          "name": "anime",
           "count": 11
         },
         {
